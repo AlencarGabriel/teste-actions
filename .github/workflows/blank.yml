@@ -36,3 +36,5 @@ jobs:
   useCallable:
     needs: [build]
     uses: ./.github/workflows/cd.yml
+    secrets:
+      TESTE_SECRET: ${{ secrets.TESTE_SECRET }}
