@@ -26,7 +26,9 @@ jobs:
         run: echo Hello, world!
 
       - name: Show release
+        env: 
+          TESTE_SECRET: ${{ secrets.TESTE_SECRET }}
         run: |
           echo ${GITHUB_REF}
-          echo ${{ secrets.TESTE_SECRET }}
+          echo ${TESTE_SECRET}
         
