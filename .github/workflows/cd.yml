@@ -38,7 +38,7 @@ jobs:
           RELEASE: ${{ inputs.release || github.ref }}
           TESTE_SECRET: ${{ secrets.TESTE_SECRET }}
         run: |
-          echo ${github.ref}
+          echo ${{github.ref}}
           echo ${GITHUB_REF}
           echo ${TESTE_SECRET}
         
