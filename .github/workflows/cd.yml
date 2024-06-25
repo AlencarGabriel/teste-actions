@@ -11,6 +11,11 @@ on:
 
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
+    inputs:
+      release:
+        description: 'Release'
+        required: false
+        default: 'warning'
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
@@ -29,9 +34,11 @@ jobs:
         run: echo Hello, world!
 
       - name: Show release
-        env: 
+        env:
+          RELEASE: ${{ inputs.release || github.ref }}
           TESTE_SECRET: ${{ secrets.TESTE_SECRET }}
         run: |
+          echo ${github.ref}
           echo ${GITHUB_REF}
           echo ${TESTE_SECRET}
         
